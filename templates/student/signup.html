@@ -1,33 +1,41 @@
 {% extends 'base.html' %}
-{% block heading %} Signup {% endblock heading %}
+{% block heading %}  {% endblock heading %}
 
 {% block content %}
 
+<style>
+  body{
+    background-image:url(https://images.pexels.com/photos/4913340/pexels-photo-4913340.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
+    background-repeat: no-repeat;
+  }
+</style>
+
+  
 <form class="w-2xl sm:w-1/2 max-w-xs flex flex-col mx-auto -mt-8 sm:-mt-12" action="/student/signup/" method="POST">
   {% csrf_token %}
   <div class="w-1/2  max-w-xs flex flex-col sm:flex-row mt-4  sm:items-center"></div>
-    <label class="text-xl" for="firstname">Firstname</label>
+    <label class="text-xl text-black" for="firstname">Firstname</label>
     <input
-      class="px-2 py-1 bg-transparent border-white border-2 h-lg mt-2 rounded "
+      class="px-2 py-1 bg-transparent border-black border-2 h-lg mt-2 rounded "
       name="firstname"
       type="text"
       placeholder="firstname"
     />
   </div>
   <div class="w-1/2 max-w-xs flex flex-col sm:flex-row mt-4 sm:items-center"></div>
-    <label class="text-xl" for="lastname">Lastname</label>
+    <label class="text-xl text-black" for="lastname">Lastname</label>
     <input
-      class="px-2 py-1 bg-transparent border-white border-2 mt-2  rounded "
+      class="px-2 py-1 bg-transparent border-black border-2 mt-2  rounded "
       name="lastname"
       type="text"
       placeholder="lastname"
     />
   </div>
   <div class="w-1/2  max-w-xs flex flex-col sm:flex-row mt-4  sm:items-center"></div>
-  <label class="text-xl" for="studentID">StudentID</label>
+  <label class="text-xl text-black" for="studentID">StudentID</label>
   
   <input
-    class="px-2 py-1 bg-transparent border-white border-2 h-lg mt-2 rounded "
+    class="px-2 py-1 bg-transparent border-black border-2 h-lg mt-2 rounded "
     name="studentID"
     type="text"
     id="studentID"
@@ -37,17 +45,18 @@
 </div>
 </div>
 <div class="w-1/2 max-w-xs flex flex-col sm:flex-row mt-4 sm:items-center"></div>
-  <label class="text-xl" for="password">Password</label>
+  <label class="text-xl text-black" for="password">Password</label>
   <input
-    class="px-2 py-1 bg-transparent border-white border-2 mt-2  rounded "
+    class="px-2 py-1 bg-transparent border-black border-2 mt-2  rounded "
     name="password"
     type="password"
     placeholder="password"
   />
 </div>
+
 <div class="w-1/2 max-w-xs flex flex-col sm:flex-row mt-4 sm:items-center"></div>
-<label class="text-xl" for="department">Department</label>
-<select class="rounded border border-red-300 py-2 focus:outline-none focus:ring-2 focus:ring-red-200 mt-2 focus:border-red-500 text-base pl-3 pr-10 text-gray-800" name="department">
+<label class="text-xl text-black" for="department">Department</label>
+<select class="rounded border-2 border-black py-2 focus:outline-none focus:ring-2 focus:ring-red-200 mt-2 focus:border-red-500 text-base pl-3 pr-10 text-gray-800" name="department">
   <option   value="">Select a dept</option>
   {% for dept in departments %}
   <option   value="{{dept.id}}">{{dept}}</option>
@@ -70,4 +79,5 @@ idField.addEventListener('input',()=>{
   }
 })
 </script>
+
 {% endblock content %}

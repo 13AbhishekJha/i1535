@@ -4,7 +4,6 @@ from .models import Fine,Book
 from student.models import Student
 
 def calcFine(issue):
-    "Calculate fines of each issue if any"
     if(issue.issued==True and issue.returned==False):
         y,m,d=str(timezone.now().date()).split('-')
         today=datetime.date(int(y),int(m),int(d))
@@ -24,7 +23,6 @@ def calcFine(issue):
         return 'no fine'
     
 def getmybooks(user):
-    "Get issued books or requested books of a student, takes a user & returns a tuple "
     requestedbooks=[]
     issuedbooks=[]
     if user.is_authenticated:

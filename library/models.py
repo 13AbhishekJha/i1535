@@ -14,6 +14,7 @@ class Book(models.Model):
     author=models.ForeignKey(Author,on_delete=models.CASCADE)
     image=models.ImageField()
     category=models.CharField(max_length=220)
+    present=models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
@@ -53,10 +54,6 @@ class Fine(models.Model):
     order_id = models.CharField(unique=True, max_length=500, null=True, blank=True, default=None) 
     datetime_of_payment = models.DateTimeField(auto_now=False,null=True,blank=True)
     
-    # related to razorpay
-    # razorpay_order_id = models.CharField(max_length=500, null=True, blank=True)
-    # razorpay_payment_id = models.CharField(max_length=500, null=True, blank=True)
-    # razorpay_signature = models.CharField(max_length=500, null=True, blank=True)
 
     def save(self, *args, **kwargs):
         if self.order_id is None :
